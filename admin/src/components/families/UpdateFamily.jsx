@@ -17,7 +17,9 @@ export default function UpdateFamily({ family, onClose, onSuccess }) {
     try {
       await updateFamily(family.familyId, { familyName, headOfFamily, contactInfo, leaderContact, photo, description });
       onSuccess();
-    } catch {}
+    } catch (err) {
+      console.error("Failed to update family:", err);
+    }
     setLoading(false);
   };
 

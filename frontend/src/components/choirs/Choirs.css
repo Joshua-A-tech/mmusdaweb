@@ -1,229 +1,217 @@
-:root {
-  --navy-dark: #000b18;
-  --navy: #001f3f;
-  --orange: #ff8c00;
-  --yt-red: #ff0000;
-  --bg-deep: #e2e8f0;
-  --card-white: #ffffff;
-  --text-dark: #0f172a;
-  --text-light: #64748b;
-}
+/* ==========================================================================
+   MMUSDA CHOIRS & MUSIC MINISTRIES
+   ========================================================================== */
 
 .choirs-outer-wrapper {
-  padding: 50px;
-  background-color: var(--bg-deep);
-  min-height: 100vh;
+  padding: 3.5rem 0;
+  background-color: var(--off-white);
+  min-height: 80vh;
 }
 
 .choirs-page-card {
-  background: var(--card-white);
-  border-radius: 20px;
+  background: var(--white);
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  max-width: 1400px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .choirs-slim-hero {
-  background: var(--navy-dark);
-  padding: 40px 20px;
+  background: linear-gradient(to bottom, var(--blue-dark), var(--blue));
+  padding: 4rem 1.5rem;
   text-align: center;
-  color: white;
-  border-bottom: 4px solid var(--orange);
+  color: var(--white);
+  border-bottom: 3px solid var(--gold);
 }
 
-.mini-badge {
+.choirs-slim-hero .mini-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255, 140, 0, 0.15);
-  color: var(--orange);
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--gold-light);
+  padding: 4px 14px;
+  border-radius: 9999px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.choirs-slim-hero .slim-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
   font-weight: 700;
-  margin-bottom: 10px;
-  border: 1px solid rgba(255, 140, 0, 0.3);
+  letter-spacing: -0.015em;
+  color: var(--white);
 }
 
-.slim-title {
-  font-size: 2rem;
-  margin: 0;
-  letter-spacing: 2px;
-  font-weight: 900;
-}
-
-.highlight {
-  color: var(--orange);
+.choirs-slim-hero .highlight {
+  color: var(--gold-light);
+  font-style: italic;
 }
 
 .choirs-content-area {
-  padding: 60px;
+  padding: 3rem 2.5rem;
+}
+
+.music-scripture-stripe {
+  margin-bottom: 2.5rem;
+}
+
+.verse-rotator {
+  border-left: 2px solid var(--gold);
+  padding-left: 1.25rem;
+}
+
+.scripture-text {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+.choirs-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.choir-modern-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.choir-stripe {
-  display: flex;
-  gap: 40px;
-  align-items: center;
+.choir-modern-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(28, 61, 114, 0.25);
+  box-shadow: var(--shadow-hover);
 }
 
-.choir-stripe.reverse {
-  flex-direction: row-reverse;
-}
-
-.choir-visual {
-  flex: 1.4;
+.choir-media-frame {
   position: relative;
+  aspect-ratio: 16 / 9;
+  background-color: var(--stone);
   overflow: hidden;
-  border-radius: 15px;
-  height: 320px;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.choir-img-wide {
+.choir-photo-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  transition: transform 0.5s ease;
 }
 
-.img-overlay-glow {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
-  pointer-events: none;
+.choir-modern-card:hover .choir-photo-img {
+  transform: scale(1.04);
 }
 
-.choir-details {
+.choir-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
-.index-tag {
-  display: block;
-  font-size: 0.9rem;
-  font-weight: 800;
-  color: var(--orange);
-  margin-bottom: 5px;
-}
-
-.choir-display-name {
-  font-size: 2.2rem;
-  color: var(--navy);
-  margin: 0 0 20px 0;
-  font-weight: 800;
-  text-align: left;
-}
-
-.meta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 20px;
-  justify-content: flex-start;
-}
-
-.meta-pill {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #f1f5f9;
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  color: var(--text-dark);
-  border: 1px solid #e2e8f0;
-}
-
-.choir-excerpt {
-  color: var(--text-light);
-  line-height: 1.6;
-  font-size: 1rem;
-  margin-bottom: 30px;
-  text-align: left;
-}
-
-.details-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 20px;
-  border-top: 1px solid #f1f5f9;
-  padding-top: 25px;
-  justify-content: flex-start;
-}
-
-.yt-btn-modern {
-  background: var(--yt-red);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 10px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.choir-name-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
   font-weight: 700;
-  font-size: 0.9rem;
-  box-shadow: 0 4px 14px rgba(255, 0, 0, 0.3);
+  color: var(--blue);
+  margin-bottom: 0.5rem;
 }
 
-.verse-snippet {
+.choir-description {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.choir-footer-meta {
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  color: var(--text-light);
-  font-style: italic;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
   font-size: 0.8rem;
-  text-align: left;
+  color: var(--text-muted);
+}
+
+.choir-leader-info {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.choir-members-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+}
+
+.choir-video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.85rem;
+  color: #cc0000;
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.choir-video-link:hover {
+  text-decoration: underline;
+}
+
+.choir-bottom-bar {
+  background-color: var(--cream);
+  padding: 1.25rem 2rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 .choirs-loading-container {
-  height: 100vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 15px;
-  color: var(--navy);
+  justify-content: center;
+  gap: 1rem;
+  color: var(--blue);
 }
 
-.pulse-icon {
-  color: var(--orange);
+@media (max-width: 1024px) {
+  .choirs-grid-layout {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media (max-width: 1100px) {
-  .choirs-outer-wrapper { padding: 20px; }
-  .choirs-content-area { padding: 40px; }
-  .choir-display-name { font-size: 1.8rem; }
-  .choir-visual { height: 280px; }
-}
-
-@media (max-width: 900px) {
-  .choir-stripe, .choir-stripe.reverse {
-    flex-direction: column;
-    gap: 25px;
+@media (max-width: 640px) {
+  .choirs-grid-layout {
+    grid-template-columns: 1fr;
   }
-  .choir-visual {
-    width: 100%;
-    height: 240px;
+  .choirs-content-area {
+    padding: 2rem 1.25rem;
   }
-  .choir-details, .choir-display-name, .choir-excerpt, .verse-snippet { 
-    text-align: left; 
-    width: 100%;
-  }
-  .meta-row, .details-actions { 
-    justify-content: flex-start; 
-  }
-  .details-actions { gap: 15px; }
-}
-
-@media (max-width: 500px) {
-  .choirs-outer-wrapper { padding: 0; }
-  .choirs-page-card { border-radius: 0; }
-  .choirs-content-area { padding: 20px; gap: 60px; }
-  .choir-visual { height: 200px; }
-  .choir-display-name { font-size: 1.5rem; }
-  .meta-pill { width: 100%; }
 }

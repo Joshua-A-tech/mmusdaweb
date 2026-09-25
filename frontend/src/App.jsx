@@ -1,11 +1,12 @@
 import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import LandingPage from "../../frontend/src/pages/LandingPage";
+import { createBrowserRouter, RouterProvider, Outlet, ScrollRestoration } from "react-router-dom";
 import { Toaster } from "sonner";
-import "./App.css"; 
-import Sermons from "../../frontend/src/components/sermons/Sermons";
+import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
+import LandingPage from "./pages/LandingPage";
+import Sermons from "./components/sermons/Sermons";
 import Error from "./components/Error/Error";
-import PrayerRequest from "../../frontend/src/components/prayerRequest/PrayerRequest";
+import PrayerRequest from "./components/prayerRequest/PrayerRequest";
 import ContactPage from "./pages/ContactPage";
 import Beliefs from "./components/beliefs/Beliefs";
 import AboutMmusda from "./components/aboutmmusda/AboutMmusda";
@@ -21,97 +22,119 @@ import Choirs from "./components/choirs/Choirs";
 import Members from "./components/members/Members";
 import Offering from "./components/offering/Offering";
 import Suggestions from "./components/suggestions/Suggestions";
-//import OfferingDetails from "./components/offeringdetails/OfferingDetails";
+import "./App.css";
 
+const RootLayout = () => {
+  return (
+    <div className="site-wrapper">
+      <Navbar />
+      <main id="main-content">
+        <Outlet />
+      </main>
+      <Footer />
+      <ScrollRestoration />
+    </div>
+  );
+};
 
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
-      element: <LandingPage />, 
+      element: <RootLayout />,
+      errorElement: (
+        <div className="site-wrapper">
+          <Navbar />
+          <Error />
+          <Footer />
+        </div>
+      ),
+      children: [
+        {
+          path: "/",
+          element: <LandingPage />,
+        },
+        {
+          path: "/sermons",
+          element: <Sermons />,
+        },
+        {
+          path: "/prayers",
+          element: <PrayerRequest />,
+        },
+        {
+          path: "/contact",
+          element: <ContactPage />,
+        },
+        {
+          path: "/about/beliefs",
+          element: <Beliefs />,
+        },
+        {
+          path: "/about/mmusda",
+          element: <AboutMmusda />,
+        },
+        {
+          path: "/announcements",
+          element: <Announcements />,
+        },
+        {
+          path: "/events",
+          element: <Event />,
+        },
+        {
+          path: "/about/sda",
+          element: <AboutSDA />,
+        },
+        {
+          path: "/books",
+          element: <Books />,
+        },
+        {
+          path: "/departments",
+          element: <Departments />,
+        },
+        {
+          path: "/leadership",
+          element: <Leaders />,
+        },
+        {
+          path: "/homechurches",
+          element: <HomeChurches />,
+        },
+        {
+          path: "/families",
+          element: <Families />,
+        },
+        {
+          path: "/choirs",
+          element: <Choirs />,
+        },
+        {
+          path: "/members",
+          element: <Members />,
+        },
+        {
+          path: "/become-member",
+          element: <Members />,
+        },
+        {
+          path: "/offering",
+          element: <Offering />,
+        },
+        {
+          path: "/suggestions",
+          element: <Suggestions />,
+        },
+        {
+          path: "/donations",
+          element: <Offering />,
+        },
+        {
+          path: "*",
+          element: <Error />,
+        },
+      ],
     },
-    {
-      path: "/sermons",
-      element: <Sermons />,
-    },
-    {
-      path: "*",
-      element: <Error />,
-    },
-    {
-      path: "/prayers",
-      element: <PrayerRequest />,
-    },
-    {
-      path: "/contact",
-      element: <ContactPage />,
-    },
-    {
-      path: "/about/beliefs",
-      element: <Beliefs />,
-    },
-    {
-      path: "/about/mmusda",
-      element: <AboutMmusda />,
-    },
-    {
-      path: "/announcements",
-      element: <Announcements />,
-    },
-    {
-      path: "/events",
-      element: <Event />,
-    },
-    {
-      path: "/about/sda",
-      element: <AboutSDA />,
-    },
-    {
-      path: "/books",
-      element: <Books />,
-    },
-    {
-      path: "/departments",
-      element: <Departments />,
-    },
-    {
-      path: "/leadership",
-      element: <Leaders />,
-    },
-    {
-      path: "/homechurches",
-      element: <HomeChurches />,
-    },
-    {
-      path: "families",
-      element: <Families />,
-    },
-    {
-      path: "choirs",
-      element: <Choirs />,
-    },
-    {
-      path: "members",
-      element: <Members />,
-    },
-    {
-      path: "/become-member",
-      element: <Members />,
-    },
-    {
-      path: "/offering",
-      element: <Offering />,
-    },
-    {
-      path: "/suggestions",
-      element: <Suggestions />,
-    },
-    {
-      path: "/donations",
-      element: <Offering />,
-    },
-    
-    
   ]);
 
   return (

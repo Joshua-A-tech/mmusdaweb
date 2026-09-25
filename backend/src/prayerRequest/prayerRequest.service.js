@@ -7,6 +7,14 @@ export const PrayerRequestsService = {
     return await db.select().from(prayerRequests).orderBy(desc(prayerRequests.createdAt));
   },
 
+  getPublic: async () => {
+    return await db
+      .select()
+      .from(prayerRequests)
+      .where(eq(prayerRequests.isPublic, "yes"))
+      .orderBy(desc(prayerRequests.createdAt));
+  },
+
   getLatestFive: async () => {
     return await db
       .select()

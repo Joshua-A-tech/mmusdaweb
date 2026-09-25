@@ -29,6 +29,7 @@ export default function Choir() {
         alert("Choir deleted successfully");
         loadChoirs();
       } catch (error) {
+        console.error("Failed to delete choir:", error);
         alert("Failed to delete choir");
       }
     }

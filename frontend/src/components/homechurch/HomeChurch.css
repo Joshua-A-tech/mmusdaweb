@@ -1,216 +1,151 @@
-:root{
---navy-dark:#000b18;
---navy:#001f3f;
---orange:#ff8c00;
---bg:#e2e8f0;
---white:#ffffff;
---text:#0f172a;
---muted:#64748b;
+/* ==========================================================================
+   MMUSDA HOME CHURCHES
+   ========================================================================== */
+
+.homechurch-outer-wrapper {
+  padding: 3.5rem 0;
+  background: var(--off-white);
+  min-height: 80vh;
 }
 
-.homechurch-outer-wrapper{
-padding:50px;
-background:var(--bg);
-min-height:100vh;
+.homechurch-page-card {
+  background: var(--white);
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
 }
 
-.homechurch-page-card{
-background:var(--white);
-border-radius:20px;
-overflow:hidden;
-max-width:1300px;
-margin:auto;
-box-shadow:0 20px 25px rgba(0,0,0,0.1);
+.homechurch-hero {
+  background: linear-gradient(to bottom, var(--blue-dark), var(--blue));
+  padding: 4rem 1.5rem;
+  text-align: center;
+  color: var(--white);
+  border-bottom: 3px solid var(--gold);
 }
 
-.homechurch-hero{
-background:var(--navy-dark);
-padding:45px 20px;
-text-align:center;
-color:white;
-border-bottom:4px solid var(--orange);
+.homechurch-hero .mini-badge {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 14px;
+  border-radius: 9999px;
+  color: var(--gold-light);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.hero-title{
-font-size:2.2rem;
-font-weight:900;
-letter-spacing:2px;
-margin-top:5px;
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--white);
+  margin-top: 5px;
 }
 
-.highlight{
-color:var(--orange);
-transition:0.3s;
+.highlight {
+  color: var(--gold-light);
+  font-style: italic;
 }
 
-.hero-title:hover .highlight{
-color:white;
+.homechurch-content {
+  padding: 3rem 2.5rem;
 }
 
-.mini-badge{
-display:inline-flex;
-gap:8px;
-align-items:center;
-background:rgba(255,140,0,0.15);
-padding:6px 14px;
-border-radius:20px;
-color:var(--orange);
-font-size:.8rem;
-font-weight:700;
-margin-bottom:12px;
-border:1px solid rgba(255,140,0,0.3);
+.homechurch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
 }
 
-.homechurch-content-area{
-padding:60px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
+.homechurch-card {
+  background: var(--white);
+  border-radius: 4px;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.homechurch-card{
-background:white;
-padding:28px;
-border-radius:14px;
-border:1px solid #e5e7eb;
-transition:all 0.35s ease;
-cursor:pointer;
-position:relative;
+.homechurch-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(28, 61, 114, 0.25);
+  box-shadow: var(--shadow-hover);
 }
 
-.homechurch-card:hover{
-box-shadow:0 15px 25px rgba(0,0,0,0.1);
-border-color:var(--orange);
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
-.index-tag{
-font-size:.8rem;
-font-weight:800;
-color:var(--orange);
-margin-bottom:6px;
-display:block;
-letter-spacing:1px;
+.card-top h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--blue);
 }
 
-.church-name{
-font-size:1.8rem;
-color:var(--navy);
-margin-bottom:18px;
-font-weight:800;
-transition:0.3s;
+.homechurch-desc {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex: 1;
 }
 
-.homechurch-card:hover .church-name{
-color:var(--orange);
+.homechurch-meta {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.825rem;
+  color: var(--text-body);
 }
 
-.meta-row{
-display:flex;
-flex-direction:column;
-gap:10px;
-margin-bottom:18px;
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.meta-pill{
-display:flex;
-align-items:center;
-gap:10px;
-background:#f1f5f9;
-padding:8px 12px;
-border-radius:8px;
-font-size:.9rem;
-color:var(--text);
-border:1px solid #e2e8f0;
-transition:0.3s;
+.meta-row svg {
+  color: var(--gold);
 }
 
-.meta-pill:hover{
-background:var(--navy);
-color:white;
-border-color:var(--navy);
+.homechurch-bottom-bar {
+  background-color: var(--cream);
+  padding: 1.25rem 2rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
-.church-description{
-color:var(--muted);
-line-height:1.6;
-margin-bottom:20px;
-font-size:.95rem;
-transition:0.3s;
+@media (max-width: 1024px) {
+  .homechurch-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.homechurch-card:hover .church-description{
-color:var(--text);
-}
-
-.verse-box{
-display:flex;
-gap:10px;
-font-style:italic;
-font-size:.85rem;
-color:var(--muted);
-border-top:1px solid #f1f5f9;
-padding-top:15px;
-transition:0.3s;
-}
-
-.homechurch-card:hover .verse-box{
-color:var(--navy);
-}
-
-.homechurch-loading{
-height:100vh;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-gap:15px;
-color:var(--navy);
-}
-
-.pulse-icon{
-color:var(--orange);
-}
-
-.no-data{
-text-align:center;
-font-size:1.2rem;
-color:var(--muted);
-padding:40px;
-}
-
-@media(max-width:900px){
-
-.homechurch-outer-wrapper{
-padding:20px;
-}
-
-.homechurch-content-area{
-padding:30px;
-grid-template-columns:1fr;
-}
-
-.hero-title{
-font-size:1.7rem;
-}
-
-.church-name{
-font-size:1.4rem;
-}
-
-}
-
-@media(max-width:500px){
-
-.homechurch-page-card{
-border-radius:0;
-}
-
-.homechurch-content-area{
-padding:20px;
-}
-
-.meta-pill{
-font-size:.85rem;
-}
-
+@media (max-width: 640px) {
+  .homechurch-grid {
+    grid-template-columns: 1fr;
+  }
+  .homechurch-content {
+    padding: 2rem 1.25rem;
+  }
 }

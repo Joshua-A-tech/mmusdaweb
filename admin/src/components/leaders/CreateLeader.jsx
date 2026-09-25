@@ -38,6 +38,7 @@ onSuccess();
 }
 
 }catch(error){
+console.error("Failed to create leader:", error);
 setMessage("Failed to create leader");
 }
 

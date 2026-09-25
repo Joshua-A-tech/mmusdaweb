@@ -1,226 +1,163 @@
-:root {
-  --navy-dark: #000b18;
-  --navy: #002366;
-  --orange: #ff8c00;
-  --bg-deep: #e2e8f0;
-  --card-white: #ffffff;
-  --text-dark: #1e293b;
-  --text-light: #64748b;
-  --slate: #f1f5f9;
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --radius-lg: 24px;
-  --radius-md: 16px;
-  --radius-sm: 12px;
-}
+/* ==========================================================================
+   MMUSDA FUNDAMENTAL BELIEFS
+   ========================================================================== */
 
 .beliefs-outer-wrapper {
-  padding: 40px;
-  background-color: var(--bg-deep);
-  min-height: 100vh;
+  padding: 3.5rem 1.5rem;
+  background-color: var(--off-white);
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .beliefs-page-card {
-  background: var(--card-white);
-  border-radius: var(--radius-lg);
+  background: var(--white);
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-  max-width: 1300px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border);
+  max-width: 1200px;
   width: 100%;
   display: flex;
-  height: 85vh;
-  position: relative;
-}
-
-.mobile-top-bar {
-  display: none;
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  height: 60px;
-  background: var(--navy-dark);
-  color: white;
-  align-items: center;
-  padding: 0 20px;
-  z-index: 90;
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.mobile-logo-text {
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  font-size: 0.85rem;
-  margin-left: 15px;
-  color: var(--orange);
-}
-
-.mobile-toggle-left {
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  color: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  transition: var(--transition);
-}
-
-.mobile-toggle-left:active {
-  transform: scale(0.9);
-  background: var(--orange);
+  height: 80vh;
+  min-height: 600px;
 }
 
 .beliefs-sidebar {
-  width: 320px;
-  background: var(--card-white);
-  border-right: 1px solid #e2e8f0;
+  width: 380px;
+  background: var(--cream);
+  border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
-  z-index: 100;
 }
 
-.sidebar-brand {
-  padding: 30px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  border-bottom: 1px solid var(--slate);
+.sidebar-header {
+  padding: 2rem 1.75rem 1.5rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.brand-icon { color: var(--navy); }
-.sidebar-brand h3 { color: var(--navy); font-weight: 800; letter-spacing: 1px; margin: 0; font-size: 1rem; }
-.close-sidebar { display: none; background: var(--slate); border: none; padding: 8px; border-radius: 8px; cursor: pointer; }
-
-.nav-label {
-  font-size: 0.65rem;
-  font-weight: 800;
-  color: var(--text-light);
-  letter-spacing: 2px;
-  padding: 25px 25px 10px;
+.sidebar-header .label {
+  margin-bottom: 0.25rem;
 }
 
-.beliefs-nav { flex: 1; overflow-y: auto; padding: 0 15px 20px; }
-
-.nav-item {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 15px;
-  border-radius: var(--radius-sm);
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  margin-bottom: 4px;
-  transition: var(--transition);
-  color: var(--text-dark);
-  font-weight: 600;
-  text-align: left;
-}
-
-.nav-idx {
-  font-size: 0.7rem;
-  background: var(--slate);
-  width: 26px;
-  height: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  color: var(--text-light);
-}
-
-.nav-arrow { margin-left: auto; opacity: 0; transform: translateX(-5px); transition: var(--transition); }
-.nav-item:hover { background: var(--slate); color: var(--orange); }
-.nav-item:hover .nav-arrow { opacity: 1; transform: translateX(0); }
-.nav-item.active { background: var(--navy); color: var(--card-white); box-shadow: 0 8px 15px rgba(0, 35, 102, 0.2); }
-.nav-item.active .nav-idx { background: rgba(255,255,255,0.2); color: var(--card-white); }
-
-.beliefs-main-layout { flex: 1; display: flex; flex-direction: column; overflow-y: auto; background: #f8fafc; }
-
-.beliefs-hero { padding: 60px; background: var(--navy-dark); color: white; border-bottom: 4px solid var(--orange); }
-
-.mini-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 140, 0, 0.1);
-  color: var(--orange);
-  padding: 6px 14px;
-  border-radius: 30px;
-  font-size: 0.7rem;
+.sidebar-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 15px;
-  border: 1px solid rgba(255, 140, 0, 0.2);
+  color: var(--blue);
 }
 
-.beliefs-hero h1 { font-size: 2.8rem; font-weight: 900; letter-spacing: 1px; margin: 0; }
-.highlight { color: var(--orange); }
-.hero-line { width: 50px; height: 4px; background: var(--orange); margin: 20px 0; border-radius: 2px; }
-.hero-subtext { color: rgba(255,255,255,0.6); font-size: 1rem; max-width: 500px; line-height: 1.5; }
+.beliefs-nav-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem 0;
+}
 
-.beliefs-display-area { padding: 50px; flex: 1; display: flex; justify-content: center; }
-
-.belief-content-card {
-  background: var(--card-white);
-  border-radius: var(--radius-lg);
+.belief-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.75rem;
   width: 100%;
-  max-width: 800px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-  border: 1px solid #eef2f6;
-  overflow: hidden;
-  height: fit-content;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  color: var(--text-body);
+  border-left: 3px solid transparent;
 }
 
-.content-header { padding: 40px; display: flex; flex-direction: column; gap: 15px; }
-.belief-number { width: fit-content; font-size: 0.85rem; font-weight: 800; color: var(--orange); background: rgba(255, 140, 0, 0.1); padding: 4px 12px; border-radius: 6px; }
-.belief-content-card h2 { font-size: 2.2rem; color: var(--navy); font-weight: 800; margin: 0; line-height: 1.2; }
+.belief-nav-item:hover {
+  background-color: var(--stone);
+  color: var(--blue);
+}
 
-.content-body { padding: 0 40px 40px; position: relative; }
-.body-inner { position: relative; z-index: 2; }
-.watermark-icon { position: absolute; bottom: -10px; right: -10px; color: var(--slate); opacity: 0.6; z-index: 1; }
-.content-body p { font-size: 1.25rem; line-height: 1.8; color: var(--text-dark); margin: 0; font-weight: 400; }
+.belief-nav-item.active {
+  background-color: var(--white);
+  color: var(--blue);
+  font-weight: 600;
+  border-left-color: var(--gold);
+}
 
-.content-footer { padding: 25px 40px; background: var(--slate); border-top: 1px solid #eef2f6; }
-.bible-badge { font-size: 0.75rem; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: 1.5px; }
+.nav-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--gold);
+  min-width: 24px;
+}
 
-@media (max-width: 1024px) {
-  .beliefs-outer-wrapper { padding: 0; }
-  .beliefs-page-card { height: 100vh; border-radius: 0; padding-top: 85px; }
-  .mobile-top-bar { display: flex; }
-  
-  .beliefs-sidebar {
-    position: fixed;
-    left: -100%;
-    top: 0;
-    bottom: 0;
-    transition: var(--transition);
-    height: 100vh;
-    width: 290px;
-    box-shadow: 20px 0 50px rgba(0,0,0,0.1);
+.beliefs-detail-panel {
+  flex: 1;
+  padding: 3.5rem;
+  overflow-y: auto;
+  background: var(--white);
+}
+
+.detail-num-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.detail-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 1.75rem;
+  line-height: 1.25;
+}
+
+.detail-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-body);
+  margin-bottom: 2rem;
+}
+
+.scripture-support-box {
+  border-left: 2px solid var(--gold);
+  padding: 1.25rem 1.5rem;
+  background: var(--cream);
+  border-radius: 0 4px 4px 0;
+}
+
+.scripture-support-box h4 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.scripture-support-box p {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+@media (max-width: 850px) {
+  .beliefs-page-card {
+    flex-direction: column;
+    height: auto;
   }
-  .beliefs-sidebar.active { left: 0; }
-  .close-sidebar { display: flex; align-items: center; justify-content: center; }
-  
-  .beliefs-hero { padding: 40px 25px; text-align: center; border-radius: var(--radius-md); margin: 0 15px; }
-  .hero-line { margin: 15px auto; }
-  .hero-subtext { margin: 0 auto; }
-  .beliefs-display-area { padding: 25px 15px; }
-  
-  .belief-content-card { border-radius: var(--radius-md); }
-}
-
-@media (max-width: 600px) {
-  .beliefs-hero h1 { font-size: 2rem; }
-  .belief-content-card h2 { font-size: 1.6rem; }
-  .content-body p { font-size: 1.1rem; }
-  .content-header, .content-body, .content-footer { padding: 25px; }
+  .beliefs-sidebar {
+    width: 100%;
+    max-height: 260px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .beliefs-detail-panel {
+    padding: 2rem 1.5rem;
+  }
 }

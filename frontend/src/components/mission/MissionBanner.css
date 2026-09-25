@@ -1,0 +1,69 @@
+/* ==========================================================================
+   MMUSDA MISSION BANNER
+   ========================================================================== */
+
+.mission-banner-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--blue);
+  padding: 5rem 0;
+}
+
+.mission-grid-pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.mission-container {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  text-align: center;
+}
+
+.mission-label {
+  color: var(--gold-light) !important;
+  margin-bottom: 1.5rem;
+}
+
+.mission-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+
+.mission-scripture {
+  margin-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 1.5rem;
+}
+
+.mission-verse {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-style: italic;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.mission-cite {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+}

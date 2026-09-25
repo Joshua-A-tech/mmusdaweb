@@ -13,7 +13,7 @@ const OfferingDetails = () => {
       try {
         const data = await getAllOfferingDetails();
         setOfferings(data);
-      } catch (err) {
+      } catch {
         setError("Failed to fetch offerings.");
       }
     };

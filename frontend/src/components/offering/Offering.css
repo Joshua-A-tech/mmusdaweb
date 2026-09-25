@@ -1,13 +1,11 @@
-:root {
-  --navy: #001f3f;
-  --orange: #ff8c00;
-  --text-gray: #475569;
-}
+/* ==========================================================================
+   MMUSDA OFFERING & GIVING
+   ========================================================================== */
 
 .offering-page-container {
-  min-height: 100vh;
-  padding: 40px 20px;
-  background: #f1f5f9;
+  min-height: 80vh;
+  padding: 4rem 1.5rem;
+  background: var(--off-white);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,148 +13,161 @@
 
 .offering-card {
   width: 100%;
-  max-width: 900px;
-  background: white;
-  border-radius: 32px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-  overflow: hidden;
-  padding: 40px;
+  max-width: 960px;
+  background: var(--white);
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+  padding: 3rem;
 }
 
 .offering-header {
-  text-align: left;
-  margin-bottom: 40px;
-  border-bottom: 1px solid #edf2f7;
-  padding-bottom: 20px;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.5rem;
 }
 
 .main-title {
-  font-size: 2.2rem;
-  font-weight: 900;
-  color: var(--navy);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  color: var(--blue);
   margin: 0;
-  transition: 0.3s;
+  letter-spacing: -0.015em;
 }
 
-.main-title:hover { color: var(--orange); }
-
-.highlight { color: var(--orange); transition: 0.3s; }
-.main-title:hover .highlight { color: var(--navy); }
+.highlight {
+  color: var(--gold);
+  font-style: italic;
+}
 
 .quote-box {
   display: flex;
-  gap: 10px;
-  margin-top: 10px;
-  color: var(--text-gray);
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-display);
   font-style: italic;
-  font-size: 0.95rem;
-  max-width: 600px;
+  font-size: 1rem;
 }
 
-.quote-icon { color: var(--orange); flex-shrink: 0; }
+.quote-icon {
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
 
 .offering-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 3rem;
+  align-items: start;
 }
 
 .info-side {
-  background: var(--navy);
-  padding: 30px;
-  border-radius: 24px;
-  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .instruction-block {
   display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 25px;
-  text-align: left;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  background: var(--cream);
+  border: 1px solid var(--border);
 }
 
 .step-num {
-  background: var(--orange);
-  color: var(--navy);
-  font-weight: 900;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold);
+  background: var(--white);
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
 }
 
 .instruction-block p {
-  margin: 0;
-  font-weight: 600;
-  line-height: 1.4;
+  font-size: 0.875rem;
+  color: var(--text-body);
+  font-weight: 500;
+}
+
+.form-side {
+  display: flex;
+  flex-direction: column;
 }
 
 .modern-form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1rem;
 }
 
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1rem;
 }
 
-.modern-form input {
+.input-group input {
   width: 100%;
-  padding: 14px 18px;
-  border-radius: 12px;
-  border: 1px solid #e2e8f0;
-  background: #f8fafc;
-  font-size: 1rem;
-  transition: 0.3s;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.925rem;
+  color: var(--text-dark);
+  background: var(--white);
 }
 
-.modern-form input:focus {
-  border-color: var(--orange);
+.input-group input:focus {
   outline: none;
-  background: white;
-  box-shadow: 0 0 0 4px rgba(255, 140, 0, 0.1);
+  border-color: var(--blue);
 }
 
-.submit-button {
-  background: var(--navy);
-  color: white;
-  border: none;
-  padding: 16px;
-  border-radius: 12px;
-  font-weight: 800;
-  font-size: 1.1rem;
-  cursor: pointer;
-  display: flex;
+.submit-btn {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  transition: 0.3s;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  background: var(--gold);
+  color: var(--blue-dark);
+  font-size: 0.925rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
 }
 
-.submit-button:hover {
-  background: var(--orange);
-  box-shadow: 0 10px 20px rgba(255, 140, 0, 0.2);
+.submit-btn:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
 }
 
-.form-message {
-  padding: 12px;
-  background: #f0fdf4;
-  color: #166534;
-  border-radius: 10px;
-  font-weight: 600;
-  text-align: center;
+.success-message {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 4px;
+  background: var(--blue-pale);
+  color: var(--blue);
+  font-size: 0.875rem;
+  border: 1px solid rgba(28, 61, 114, 0.2);
 }
 
-@media (max-width: 850px) {
-  .offering-grid { grid-template-columns: 1fr; }
-  .offering-card { padding: 25px; border-radius: 20px; }
-  .main-title { font-size: 1.8rem; }
-}
-
-@media (max-width: 480px) {
-  .offering-page-container { padding: 10px; }
-  .info-side { padding: 20px; }
+@media (max-width: 768px) {
+  .offering-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .offering-card {
+    padding: 2rem 1.5rem;
+  }
 }

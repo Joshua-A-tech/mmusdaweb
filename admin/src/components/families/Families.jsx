@@ -14,7 +14,7 @@ export default function Families() {
 
   const fetchFamilies = async () => {
     setLoading(true);
-    try { setFamilies(await getAllFamilies()); } catch {}
+    try { setFamilies(await getAllFamilies()); } catch (err) { console.error(err); }
     setLoading(false);
   };
 
@@ -22,7 +22,7 @@ export default function Families() {
 
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this family?")) return;
-    try { await deleteFamily(id); fetchFamilies(); } catch {}
+    try { await deleteFamily(id); fetchFamilies(); } catch (err) { console.error(err); }
   };
 
   const openUpdate = (family) => { setSelectedFamily(family); setShowUpdate(true); };

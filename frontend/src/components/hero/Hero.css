@@ -1,0 +1,188 @@
+/* ==========================================================================
+   MMUSDA HERO SECTION
+   ========================================================================== */
+
+.main-hero-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  max-height: 900px;
+  min-height: 580px;
+  overflow: hidden;
+}
+
+.main-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, var(--blue-dark), var(--blue), #1a4b8c);
+}
+
+.main-hero-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  opacity: 0.65;
+}
+
+.main-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(17, 37, 73, 0.35) 0%,
+    rgba(17, 37, 73, 0.55) 50%,
+    rgba(17, 37, 73, 0.88) 100%
+  );
+}
+
+.main-hero-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.main-hero-container {
+  max-width: 860px;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+.hero-location-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1.25rem;
+}
+
+.hero-main-title {
+  margin-bottom: 1.25rem;
+}
+
+.hero-mmusda-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-live-wrapper {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10;
+}
+
+.hero-quote {
+  max-width: 520px;
+  border-left: 2px solid var(--gold-light);
+  padding-left: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-style: italic;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 2rem;
+}
+
+.hero-quote-cite {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+  margin-top: 0.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* ==========================================================================
+   SCHEDULE BAR (MMUSDA Bottom Border & Grid)
+   ========================================================================== */
+
+.hero-schedule-bar {
+  position: relative;
+  z-index: 2;
+  background-color: var(--white);
+  border-top: 3px solid var(--gold);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.schedule-bar-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.schedule-item {
+  padding: 1.1rem 1.5rem;
+  border-right: 1px solid var(--border);
+}
+
+.schedule-item:last-child {
+  border-right: none;
+}
+
+.schedule-time {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+  font-weight: 500;
+}
+
+.schedule-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 0.1rem;
+}
+
+.schedule-sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .schedule-bar-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .schedule-item:nth-child(3) {
+    border-right: none;
+  }
+  .schedule-item:nth-child(n + 4) {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .schedule-bar-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .schedule-item:nth-child(2) {
+    border-right: none;
+  }
+  .schedule-item:nth-child(n + 3) {
+    display: none;
+  }
+  .schedule-item {
+    padding: 0.9rem 1rem;
+  }
+}

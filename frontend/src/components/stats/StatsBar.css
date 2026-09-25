@@ -1,0 +1,69 @@
+/* ==========================================================================
+   MMUSDA STATS BAR
+   ========================================================================== */
+
+.stats-bar-wrapper {
+  background-color: var(--blue-dark);
+  padding: 4.5rem 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  divide-x: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-col {
+  padding: 1rem 2rem;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.stat-col:last-child {
+  border-right: none;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.stat-suffix {
+  font-size: 0.55em;
+  color: var(--gold-light);
+  margin-left: 2px;
+}
+
+.stat-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .stat-col:nth-child(2) {
+    border-right: none;
+  }
+  .stat-col:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    padding-bottom: 2rem;
+  }
+  .stat-col:nth-child(n + 3) {
+    padding-top: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .stat-col {
+    padding: 1rem;
+  }
+}

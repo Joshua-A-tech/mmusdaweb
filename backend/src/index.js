@@ -26,6 +26,7 @@ const app = express();
 const allowedOrigins = [
   "https://mmusda.vercel.app",
   "http://localhost:5173",
+  "http://localhost:5174",
   "https://mmusdaadmin.vercel.app"
 ];
 
@@ -64,8 +65,5 @@ app.get("/", (req, res) =>
     "MKUU HAPA NI BACKEND, HUWEZI ONA KITU INAFANYIKA, MAYBE UTUHACK WHICH HUWEZI, SISI NDO SIFUNA!!!!!"
   )
 );
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 export default app;

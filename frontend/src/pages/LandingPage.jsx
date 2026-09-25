@@ -1,25 +1,30 @@
-//import React from "react";
-import Navbar from "../../../frontend/src/components/navbar/Navbar";
-import Home from "../../../frontend/src/components/home/Home";
-import Main from "../../../frontend/src/components/main/Main";
-import Sermons from "../../../frontend/src/components/sermons/Sermons";
-import Footer from "../../src/components/footer/Footer";
-import Contact from "../../src/components/contact/Contact";
-import PrayerRequest from "../../src/components/prayerRequest/PrayerRequest";
-import Hero1 from "../components/hero1/Hero1";
-//import Event from "../components/event/Event"
+import React from "react";
+import Hero from "../components/hero/Hero";
+import Welcome from "../components/welcome/Welcome";
+import MissionBanner from "../components/mission/MissionBanner";
+import SabbathProgramme from "../components/programme/SabbathProgramme";
+import PhotoBanner from "../components/photobanner/PhotoBanner";
+import MinistriesShowcase from "../components/ministries/MinistriesShowcase";
+import StatsBar from "../components/stats/StatsBar";
+import MusicShowcase from "../components/music/MusicShowcase";
+import Sermons from "../components/sermons/Sermons";
+import PrayerRequest from "../components/prayerRequest/PrayerRequest";
+import Contact from "../components/contact/Contact";
 
 function LandingPage() {
   return (
-    <div>
-      <Navbar />
-      <Home />
-      <Main />
-      <Hero1 />
+    <div className="landing-page-content">
+      <Hero />
+      <Welcome />
+      <MissionBanner />
+      <SabbathProgramme />
+      <PhotoBanner />
+      <MinistriesShowcase />
+      <StatsBar />
+      <MusicShowcase />
+      <Sermons />
       <PrayerRequest />
       <Contact />
-      <Sermons />
-      <Footer />
     </div>
   );
 }

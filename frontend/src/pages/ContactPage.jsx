@@ -1,14 +1,10 @@
-
-import Footer from "../../src/components/footer/Footer";
-import Contact from "../../src/components/contact/Contact";
-
-
+import React from "react";
+import Contact from "../components/contact/Contact";
 
 function ContactPage() {
   return (
-    <div>
+    <div className="contact-page-content">
       <Contact />
-      <Footer />
     </div>
   );
 }

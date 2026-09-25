@@ -11,16 +11,17 @@ const navigate = useNavigate()
 const [fullName,setFullName] = useState("")
 const [email,setEmail] = useState("")
 
-useEffect(()=>{
-load()
-},[])
-
-const load = async ()=>{
-const admins = await AdminsAPI.getAdmins()
-const admin = admins.find(a=>a.adminId == id)
-setFullName(admin.fullName)
-setEmail(admin.email)
-}
+  useEffect(() => {
+    const load = async () => {
+      const admins = await AdminsAPI.getAdmins();
+      const admin = admins?.find((a) => a.adminId == id);
+      if (admin) {
+        setFullName(admin.fullName || "");
+        setEmail(admin.email || "");
+      }
+    };
+    load();
+  }, [id]);
 
 const submit = async (e)=>{
 e.preventDefault()
