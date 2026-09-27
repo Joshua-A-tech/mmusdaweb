@@ -23,11 +23,16 @@ dotenv.config();
 
 const app = express();
 
+const extraOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(",").map((o) => o.trim())
+  : [];
+
 const allowedOrigins = [
   "https://mmusda.vercel.app",
   "http://localhost:5173",
   "http://localhost:5174",
-  "https://mmusdaadmin.vercel.app"
+  "https://mmusdaadmin.vercel.app",
+  ...extraOrigins
 ];
 
 app.use(express.json());
@@ -35,10 +40,18 @@ app.use(
   cors({
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) return callback(null, true);
+      if (
+        allowedOrigins.includes(origin) ||
+        origin.endsWith(".vercel.app") ||
+        origin.endsWith(".onrender.com")
+      ) {
+        return callback(null, true);
+      }
       callback(new Error("Not allowed by CORS"));
     },
-    methods: ["GET", "POST", "PUT", "DELETE"]
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
   })
 );
 
