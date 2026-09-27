@@ -1,90 +1,156 @@
-.admins-page{
-  padding:40px;
-  background:#0b1f3a;
-  min-height:100vh;
-  color:white;
+/* ==========================================================================
+   MMUSDA ADMIN USERS MANAGEMENT (RESPONSIVE)
+   ========================================================================== */
+
+.admins-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  animation: fadeIn 0.3s ease;
 }
 
-.admins-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
+.admins-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
 }
 
-.create-btn{
-  background:#ff7a00;
-  color:white;
-  padding:10px 16px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
+.admins-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--navy-950);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.admin-form{
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-  background:#fff;
-  color:#000;
-  padding:20px;
-  border-radius:8px;
-  margin-bottom:20px;
-  width:320px;
+.admins-header h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 22px;
+  background: var(--gradient-gold);
+  border-radius: 2px;
 }
 
-.admin-form input{
-  padding:10px;
-  border-radius:6px;
-  border:1px solid #ddd;
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--bg-surface);
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  margin-bottom: 20px;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  box-sizing: border-box;
 }
 
-.admin-form button{
-  background:#ff7a00;
-  color:white;
-  border:none;
-  padding:10px;
-  border-radius:6px;
-  cursor:pointer;
+.admin-form h3 {
+  font-family: var(--font-display);
+  color: var(--navy-950);
+  font-size: 1.3rem;
+  margin: 0 0 4px 0;
 }
 
-.cancel-btn{
-  background:black;
+.admin-form input {
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-light);
+  font-size: 14px;
+  font-family: var(--font-sans);
+  background: #fdfdfd;
+  color: var(--text-primary);
+  outline: none;
 }
 
-table{
-  width:100%;
-  border-collapse:collapse;
-  background:white;
-  color:black;
+.admin-form input:focus {
+  border-color: var(--gold-500);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15);
 }
 
-th{
-  background:#0b1f3a;
-  color:white;
-  padding:12px;
+.admin-form button {
+  background: var(--gradient-gold);
+  color: var(--navy-950);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 11px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: var(--shadow-gold);
+  transition: all 0.2s ease;
 }
 
-td{
-  padding:12px;
-  border-bottom:1px solid #ddd;
+.admin-form button:hover {
+  background: var(--gradient-gold-hover);
+  transform: translateY(-1px);
 }
 
-.edit{
-  background:#ff7a00;
-  color:white;
-  border:none;
-  padding:6px 10px;
-  margin-right:8px;
-  border-radius:4px;
-  cursor:pointer;
+.admin-form .cancel-btn {
+  background: var(--bg-subtle);
+  color: var(--text-body);
+  border: 1px solid var(--border-light);
+  box-shadow: none;
 }
 
-.delete{
-  background:black;
-  color:white;
-  border:none;
-  padding:6px 10px;
-  border-radius:4px;
-  cursor:pointer;
+.admin-form .cancel-btn:hover {
+  background: #e2e8f0;
+  transform: none;
+}
+
+.edit {
+  background: var(--gradient-gold);
+  color: var(--navy-950);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  margin-right: 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.edit:hover {
+  background: var(--gradient-gold-hover);
+  transform: translateY(-1px);
+}
+
+.delete {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.delete:hover {
+  background: var(--danger);
+  color: var(--text-white);
+}
+
+@media(max-width: 640px) {
+  .admins-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .create-btn {
+    width: 100%;
+    text-align: center;
+  }
 }

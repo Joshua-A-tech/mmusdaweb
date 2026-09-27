@@ -40,77 +40,79 @@ export default function OfferingDetails() {
     <div className="offering-details-page">
       <h2>Offering Details</h2>
 
-      <table className="details-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Phone Number</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {details.length === 0 && (
+      <div className="table-container">
+        <table className="details-table">
+          <thead>
             <tr>
-              <td colSpan="3" className="no-data">
-                No offering details found
-              </td>
+              <th>Name</th>
+              <th>Phone Number</th>
+              <th>Action</th>
             </tr>
-          )}
+          </thead>
 
-          {details.map((item) => (
-            <tr key={item.id}>
-              <td>
-                {editingId === item.id ? (
-                  <input
-                    type="text"
-                    value={editData.name}
-                    onChange={(e) =>
-                      setEditData({ ...editData, name: e.target.value })
-                    }
-                  />
-                ) : (
-                  item.name
-                )}
-              </td>
+          <tbody>
+            {details.length === 0 && (
+              <tr>
+                <td colSpan="3" className="no-data">
+                  No offering details found
+                </td>
+              </tr>
+            )}
 
-              <td>
-                {editingId === item.id ? (
-                  <input
-                    type="text"
-                    value={editData.phoneNumber}
-                    onChange={(e) =>
-                      setEditData({ ...editData, phoneNumber: e.target.value })
-                    }
-                  />
-                ) : (
-                  item.phoneNumber
-                )}
-              </td>
+            {details.map((item) => (
+              <tr key={item.id}>
+                <td>
+                  {editingId === item.id ? (
+                    <input
+                      type="text"
+                      value={editData.name}
+                      onChange={(e) =>
+                        setEditData({ ...editData, name: e.target.value })
+                      }
+                    />
+                  ) : (
+                    <strong>{item.name}</strong>
+                  )}
+                </td>
 
-              <td>
-                {editingId === item.id ? (
-                  <>
-                    <button
-                      className="save-btn"
-                      onClick={() => handleSave(item.id)}
-                    >
-                      💾 Save
+                <td>
+                  {editingId === item.id ? (
+                    <input
+                      type="text"
+                      value={editData.phoneNumber}
+                      onChange={(e) =>
+                        setEditData({ ...editData, phoneNumber: e.target.value })
+                      }
+                    />
+                  ) : (
+                    item.phoneNumber
+                  )}
+                </td>
+
+                <td>
+                  {editingId === item.id ? (
+                    <div style={{ display: "flex", gap: "8px" }}>
+                      <button
+                        className="save-btn"
+                        onClick={() => handleSave(item.id)}
+                      >
+                        Save
+                      </button>
+                      <button className="cancel-btn" onClick={handleCancel}>
+                        Cancel
+                      </button>
+                    </div>
+                  ) : (
+                    <button className="edit-btn" onClick={() => handleEdit(item)}>
+                      Edit Details
                     </button>
-                    <button className="cancel-btn" onClick={handleCancel}>
-                      ❌ Cancel
-                    </button>
-                  </>
-                ) : (
-                  <button className="edit-btn" onClick={() => handleEdit(item)}>
-                    ✏️ Edit
-                  </button>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

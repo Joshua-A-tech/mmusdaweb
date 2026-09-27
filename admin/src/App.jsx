@@ -12,6 +12,7 @@ import NewPassword from "./pages/auth/NewPassword";
 
 // Dashboard
 import AdminDashboard from "./dashboard/AdminDashboard/AdminDashboard";
+import DashboardHome from "./dashboard/AdminDashboard/DashboardHome";
 
 // Components
 import Departments from "./components/departments/Departments";
@@ -72,7 +73,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <h2>Admin Dashboard</h2>,
+        element: <DashboardHome />,
       },
       {
         path: "departments",

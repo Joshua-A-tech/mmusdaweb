@@ -116,31 +116,33 @@ export default function Admins() {
         </form>
       )}
 
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {admins.map((admin) => (
-            <tr key={admin.adminId}>
-              <td>{admin.fullName}</td>
-              <td>{admin.email}</td>
-              <td>
-                <button className="edit" onClick={() => startEdit(admin)}>
-                  Edit
-                </button>
-                <button className="delete" onClick={() => removeAdmin(admin.adminId)}>
-                  Delete
-                </button>
-              </td>
+      <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {admins.map((admin) => (
+              <tr key={admin.adminId}>
+                <td><strong>{admin.fullName}</strong></td>
+                <td>{admin.email}</td>
+                <td>
+                  <button className="edit" onClick={() => startEdit(admin)}>
+                    Edit
+                  </button>
+                  <button className="delete" onClick={() => removeAdmin(admin.adminId)}>
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

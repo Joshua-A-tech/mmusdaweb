@@ -23,6 +23,8 @@ export default function Login() {
     try {
       const res = await axios.post(`${APIDomain}/api/auth/login`, { email, password });
       localStorage.setItem("token", res.data.token);
+      if (res.data.fullName) localStorage.setItem("adminName", res.data.fullName);
+      if (res.data.email) localStorage.setItem("adminEmail", res.data.email);
       navigate("/admin/dashboard");
     } catch (err) {
       setMessage(err.response?.data?.error || "Login failed. Please try again.");

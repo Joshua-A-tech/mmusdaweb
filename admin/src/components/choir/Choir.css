@@ -1,125 +1,152 @@
-.choirPage{
-padding:25px;
-background:#f4f7ff;
-min-height:100vh;
-font-family:Arial, Helvetica, sans-serif;
+/* ==========================================================================
+   MMUSDA ADMIN CHOIRS MANAGEMENT (RESPONSIVE)
+   ========================================================================== */
+
+.choirPage {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  animation: fadeIn 0.3s ease;
 }
 
-.pageTitle{
-font-size:28px;
-color:#0b2a63;
-margin-bottom:20px;
+.pageTitle {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--navy-950);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
 }
 
-.loading{
-text-align:center;
-font-size:18px;
-color:#0b2a63;
-margin-top:20px;
+.pageTitle::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 22px;
+  background: var(--gradient-gold);
+  border-radius: 2px;
 }
 
-.empty{
-text-align:center;
-font-size:16px;
-margin-top:20px;
+.choirList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
 }
 
-.choirList{
-margin-top:25px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:20px;
+.choirCard {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
 }
 
-.choirCard{
-background:white;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 6px 15px rgba(0,0,0,0.08);
-transition:0.3s;
+.choirCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(184, 134, 11, 0.4);
 }
 
-.choirCard:hover{
-transform:translateY(-5px);
+.choirCard img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: var(--navy-900);
 }
 
-.choirCard img{
-width:100%;
-height:180px;
-object-fit:cover;
+.cardContent {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
 }
 
-.cardContent{
-padding:15px;
+.cardContent h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--navy-950);
+  margin: 0;
 }
 
-.cardContent h3{
-color:#0b2a63;
-margin-bottom:5px;
+.leader {
+  font-size: 13.5px;
+  color: var(--text-body);
+  font-weight: 600;
 }
 
-.leader{
-font-size:14px;
-font-weight:600;
+.members {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--gold-600);
+  background: var(--gold-50);
+  border: 1px solid rgba(184, 134, 11, 0.25);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  align-self: flex-start;
+  margin: 2px 0 6px 0;
 }
 
-.members{
-font-size:13px;
-color:#ff7a00;
-font-weight:bold;
-margin:4px 0;
+.desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
-.desc{
-font-size:13px;
-color:#333;
-margin-top:8px;
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
 }
 
-.actions{
-display:flex;
-justify-content:flex-end;
-gap:10px;
-margin-top:10px;
+.videoBtn {
+  background: var(--navy-900);
+  color: var(--text-white);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-.videoBtn{
-background:#ff7a00;
-border:none;
-color:white;
-padding:8px;
-border-radius:6px;
-display:flex;
-align-items:center;
-justify-content:center;
-text-decoration:none;
+.videoBtn:hover {
+  background: var(--navy-800);
+  color: var(--gold-400);
 }
 
-.videoBtn:hover{
-background:#e56700;
+.editBtn {
+  background: var(--gradient-gold);
+  color: var(--navy-950);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.2s ease;
 }
 
-.editBtn{
-background:#0b2a63;
-border:none;
-color:white;
-padding:8px;
-border-radius:6px;
-cursor:pointer;
+.editBtn:hover {
+  background: var(--gradient-gold-hover);
+  transform: translateY(-1px);
 }
 
-.editBtn:hover{
-background:#081c44;
-}
-
-@media(max-width:600px){
-
-.pageTitle{
-font-size:22px;
-}
-
-.choirCard img{
-height:160px;
-}
-
+@media(max-width: 600px) {
+  .choirList {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,61 +1,84 @@
+/* ==========================================================================
+   MMUSDA ADMIN CONTACTS MANAGEMENT (RESPONSIVE)
+   ========================================================================== */
+
 .contacts-page {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  background-color: white;
-  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  animation: fadeIn 0.3s ease;
 }
 
 .contacts-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
 }
 
-.pdf-btn {
-  background-color: #FF8C42;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  cursor: pointer;
-  font-weight: bold;
-  border-radius: 5px;
+.contacts-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--navy-950);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.pdf-btn:hover {
-  background-color: darkorange;
+.contacts-header h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 22px;
+  background: var(--gradient-gold);
+  border-radius: 2px;
 }
 
 .contacts-table {
   width: 100%;
   border-collapse: collapse;
-}
-
-.contacts-table th, .contacts-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
+  white-space: nowrap;
 }
 
 .contacts-table th {
-  background-color: #002F6C;
-  color: white;
+  background: var(--gradient-navy);
+  color: var(--text-white);
+  padding: 14px 18px;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   text-align: left;
 }
 
-.actions {
-  display: flex;
-  gap: 10px;
+.contacts-table td {
+  padding: 14px 18px;
+  color: var(--text-body);
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
 }
 
-.delete-icon {
-  color: #FF8C42;
-  cursor: pointer;
+.contacts-table tbody tr:hover td {
+  background: rgba(238, 243, 251, 0.5);
 }
 
-.delete-icon:hover {
-  color: darkorange;
+.contacts-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
-.table-container {
-  overflow-x: auto;
+@media (max-width: 640px) {
+  .contacts-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .pdf-btn {
+    width: 100%;
+    text-align: center;
+  }
 }

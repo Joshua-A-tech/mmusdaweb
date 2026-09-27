@@ -1,8 +1,13 @@
+/* ==========================================================================
+   MMUSDA ADMIN FAMILIES MANAGEMENT (RESPONSIVE)
+   ========================================================================== */
+
 .families-page {
-  padding: 25px;
-  min-height: 100vh;
-  background: #f4f7ff;
-  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  animation: fadeIn 0.3s ease;
 }
 
 .families-header {
@@ -10,55 +15,52 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 14px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .families-header h2 {
-  color: #0b2a63;
-  font-size: 28px;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--navy-950);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.create-btn {
-  background: #ff7a00;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.create-btn:hover {
-  background: #e56700;
-}
-
-.loading-text {
-  text-align: center;
-  font-weight: 600;
-  color: #0b2a63;
-  padding: 20px 0;
+.families-header h2::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 22px;
+  background: var(--gradient-gold);
+  border-radius: 2px;
 }
 
 .families-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
 }
 
 .family-card {
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: 0.3s;
+  transition: all 0.25s ease;
 }
 
 .family-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(184, 134, 11, 0.4);
 }
 
 .photo-wrapper {
@@ -68,7 +70,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e6e6e6;
+  background: var(--navy-950);
 }
 
 .photo-wrapper img {
@@ -78,69 +80,55 @@
 }
 
 .placeholder {
-  font-size: 14px;
-  color: #555;
+  font-size: 13px;
+  color: #94a3b8;
+  font-style: italic;
 }
 
 .family-info {
-  padding: 15px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
 }
 
 .family-info h3 {
-  color: #0b2a63;
-  margin-bottom: 8px;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--navy-950);
+  margin: 0 0 4px 0;
 }
 
 .family-info p {
-  font-size: 14px;
-  margin: 3px 0;
-  color: #333;
+  font-size: 13.5px;
+  margin: 2px 0;
+  color: var(--text-body);
 }
 
 .description {
   font-size: 13px;
-  color: #555;
+  color: var(--text-muted);
   margin-top: 6px;
+  line-height: 1.4;
 }
 
 .card-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
-  padding: 10px 15px;
-  border-top: 1px solid #eee;
+  gap: 10px;
+  padding: 12px 18px;
+  border-top: 1px solid var(--border-light);
+  background: var(--bg-subtle);
+  margin-top: auto;
 }
 
-.edit-icon {
-  color: #ff7a00;
-  cursor: pointer;
-  font-size: 18px;
-  transition: 0.2s;
-}
-
-.edit-icon:hover {
-  transform: scale(1.2);
-}
-
-.delete-icon {
-  color: #d11a2a;
-  cursor: pointer;
-  font-size: 18px;
-  transition: 0.2s;
-}
-
-.delete-icon:hover {
-  transform: scale(1.2);
-}
-
-@media (max-width: 768px) {
-  .families-header h2 {
-    font-size: 22px;
+@media (max-width: 640px) {
+  .families-header {
+    flex-direction: column;
+    align-items: stretch;
   }
-  .family-info h3 {
-    font-size: 18px;
-  }
-  .family-info p {
-    font-size: 13px;
+  .families-cards {
+    grid-template-columns: 1fr;
   }
 }

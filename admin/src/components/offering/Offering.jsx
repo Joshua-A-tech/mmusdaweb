@@ -67,49 +67,52 @@ export default function Offering() {
         </button>
       </div>
 
-      <table className="offering-table">
+      <div className="table-container">
+        <table className="offering-table">
 
-        <thead>
-          <tr>
-            <th>Phone Number</th>
-            <th>Name</th>
-            <th>Amount</th>
-            <th>Purpose</th>
-            <th>Date</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-
-        <tbody>
-
-          {offerings.map((item) => (
-
-            <tr key={item.offeringId}>
-
-              <td>{item.phoneNumber}</td>
-              <td>{item.name}</td>
-              <td>{item.amount}</td>
-              <td>{item.purpose}</td>
-              <td>{new Date(item.createdAt).toLocaleDateString()}</td>
-
-              <td>
-
-                <button
-                  className="delete-icon-btn"
-                  onClick={() => handleDelete(item.offeringId)}
-                >
-                  <FaTrash />
-                </button>
-
-              </td>
-
+          <thead>
+            <tr>
+              <th>Phone Number</th>
+              <th>Name</th>
+              <th>Amount (KES)</th>
+              <th>Purpose</th>
+              <th>Date</th>
+              <th>Action</th>
             </tr>
+          </thead>
 
-          ))}
+          <tbody>
 
-        </tbody>
+            {offerings.map((item) => (
 
-      </table>
+              <tr key={item.offeringId}>
+
+                <td>{item.phoneNumber}</td>
+                <td>{item.name}</td>
+                <td style={{ fontWeight: 600, color: "var(--navy-900)" }}>{item.amount}</td>
+                <td><span className="badge badge-gold">{item.purpose}</span></td>
+                <td>{new Date(item.createdAt).toLocaleDateString()}</td>
+
+                <td>
+
+                  <button
+                    className="delete-icon-btn"
+                    onClick={() => handleDelete(item.offeringId)}
+                    title="Delete record"
+                  >
+                    <FaTrash />
+                  </button>
+
+                </td>
+
+              </tr>
+
+            ))}
+
+          </tbody>
+
+        </table>
+      </div>
 
     </div>
   );

@@ -1,80 +1,110 @@
-:root{
---dark-blue:#0A1A44;
---warm-orange:#FF8C42;
---white:#ffffff;
---black:#000000;
+/* ==========================================================================
+   MMUSDA ADMIN UPDATE DEPARTMENT FORM
+   ========================================================================== */
+
+.department-form {
+  background: var(--bg-surface);
+  padding: 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  animation: slideUp 0.25s ease;
 }
 
-.department-form{
-background:var(--white);
-padding:25px;
-border-radius:10px;
-box-shadow:0 5px 12px rgba(0,0,0,0.15);
-display:flex;
-flex-direction:column;
-gap:15px;
-margin-bottom:25px;
-}
-
-.form-title{
-color:var(--dark-blue);
-font-size:20px;
-font-weight:bold;
+.form-title {
+  font-family: var(--font-display);
+  color: var(--navy-950);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
 }
 
 .department-form input,
-.department-form textarea{
-padding:10px;
-border:2px solid var(--dark-blue);
-border-radius:6px;
-font-size:14px;
-outline:none;
-background:var(--white);
-color:var(--black);
+.department-form textarea {
+  padding: 12px 14px;
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  font-size: 14px;
+  font-family: var(--font-sans);
+  outline: none;
+  background: #fdfdfd;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .department-form input:focus,
-.department-form textarea:focus{
-border-color:var(--warm-orange);
+.department-form textarea:focus {
+  border-color: var(--gold-500);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15);
 }
 
-.form-buttons{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
+.department-form textarea {
+  min-height: 85px;
+  resize: vertical;
 }
 
-.save-btn{
-background:var(--dark-blue);
-color:var(--white);
-border:none;
-padding:10px 16px;
-border-radius:6px;
-cursor:pointer;
-font-weight:bold;
-transition:0.3s;
+.form-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 6px;
 }
 
-.save-btn:hover{
-background:var(--warm-orange);
+.save-btn {
+  background: var(--gradient-gold);
+  color: var(--navy-950);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: var(--shadow-gold);
+  transition: all 0.2s ease;
 }
 
-.cancel-btn{
-background:var(--warm-orange);
-color:var(--white);
-border:none;
-padding:10px 16px;
-border-radius:6px;
-cursor:pointer;
-font-weight:bold;
-transition:0.3s;
+.save-btn:hover {
+  background: var(--gradient-gold-hover);
+  transform: translateY(-1px);
 }
 
-.cancel-btn:hover{
-background:var(--dark-blue);
+.cancel-btn {
+  background: var(--bg-subtle);
+  color: var(--text-body);
+  border: 1px solid var(--border-light);
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
 }
 
-.btn-loading{
-opacity:0.7;
-pointer-events:none;
+.cancel-btn:hover {
+  background: #e2e8f0;
+}
+
+.btn-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .department-form {
+    padding: 20px 16px;
+  }
+  .form-buttons {
+    flex-direction: column-reverse;
+  }
+  .save-btn, .cancel-btn {
+    width: 100%;
+    text-align: center;
+  }
 }

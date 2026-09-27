@@ -93,52 +93,54 @@ const Departments = ()=>{
 
       ) : (
 
-        <table className="departments-table">
+        <div className="table-container">
+          <table className="departments-table">
 
-          <thead>
+            <thead>
 
-            <tr>
-              <th>Name</th>
-              <th>Leader</th>
-              <th>Assistant</th>
-              <th>Contact</th>
-              <th>Actions</th>
-            </tr>
-
-          </thead>
-
-          <tbody>
-
-            {departments.map(dept =>(
-
-              <tr key={dept.departmentId} className="departments-row">
-
-                <td>{dept.name}</td>
-                <td>{dept.adminLeader}</td>
-                <td>{dept.assistant}</td>
-                <td>{dept.adminContact}</td>
-
-                <td className="actions">
-
-                  <FaEdit
-                    className="icon edit-icon"
-                    onClick={()=>setEditingDepartment(dept)}
-                  />
-
-                  <FaTrash
-                    className="icon delete-icon"
-                    onClick={()=>handleDelete(dept.departmentId)}
-                  />
-
-                </td>
-
+              <tr>
+                <th>Name</th>
+                <th>Leader</th>
+                <th>Assistant</th>
+                <th>Contact</th>
+                <th>Actions</th>
               </tr>
 
-            ))}
+            </thead>
 
-          </tbody>
+            <tbody>
 
-        </table>
+              {departments.map(dept =>(
+
+                <tr key={dept.departmentId} className="departments-row">
+
+                  <td>{dept.name}</td>
+                  <td>{dept.adminLeader}</td>
+                  <td>{dept.assistant}</td>
+                  <td>{dept.adminContact}</td>
+
+                  <td className="actions">
+
+                    <FaEdit
+                      className="icon edit-icon"
+                      onClick={()=>setEditingDepartment(dept)}
+                    />
+
+                    <FaTrash
+                      className="icon delete-icon"
+                      onClick={()=>handleDelete(dept.departmentId)}
+                    />
+
+                  </td>
+
+                </tr>
+
+              ))}
+
+            </tbody>
+
+          </table>
+        </div>
 
       )}
 

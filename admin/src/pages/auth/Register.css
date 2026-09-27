@@ -1,180 +1,188 @@
+/* ==========================================================================
+   MMUSDA ADMIN REGISTER PAGE
+   ========================================================================== */
+
 .auth-page {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0b2a6b, #000000);
-  padding: 20px;
+  background: var(--gradient-navy);
+  padding: 24px;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-page::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  right: -100px;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 160, 23, 0.18) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .auth-card {
-  background: white;
-  padding: 45px 35px;
+  background: var(--bg-surface);
+  padding: 44px 38px;
   width: 100%;
-  max-width: 420px;
-  border-radius: 14px;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+  max-width: 450px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 60px -15px rgba(10, 22, 40, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
   text-align: left;
-  animation: cardFade 0.6s ease;
+  position: relative;
+  z-index: 2;
+  animation: cardSlideFade 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .panel-title {
   text-align: center;
-  font-size: 18px;
-  letter-spacing: 2px;
-  color: #0b2a6b;
-  margin-bottom: 10px;
-  font-weight: 800;
-  transition: 0.3s;
-}
-
-.panel-title:hover {
-  color: #ff8c32;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--gold-600);
+  background: var(--gold-100);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  display: inline-block;
+  margin: 0 auto 14px auto;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 1px solid rgba(184, 134, 11, 0.3);
 }
 
 .auth-card h2 {
   text-align: center;
-  font-size: 24px;
-  color: black;
-  margin-bottom: 25px;
-  transition: 0.3s;
-}
-
-.auth-card h2:hover {
-  color: #ff8c32;
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--navy-950);
+  margin-bottom: 24px;
+  line-height: 1.2;
 }
 
 .input-group {
   margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 .input-group label {
   display: block;
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  color: black;
-  transition: 0.3s;
-}
-
-.input-group label:hover {
-  color: #ff8c32;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 7px;
+  color: var(--navy-900);
 }
 
 .auth-card input {
   width: 100%;
-  padding: 13px 14px 13px 14px;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border-light);
   font-size: 14px;
-  transition: 0.3s;
-  background: #f9f9f9;
-  color: #000000;
+  transition: all 0.2s ease;
+  background: #fdfdfd;
+  color: var(--text-primary);
   box-sizing: border-box;
 }
 
 .auth-card input:focus {
   outline: none;
-  border-color: #0b2a6b;
-  box-shadow: 0 0 0 3px rgba(11, 42, 107, 0.25);
+  border-color: var(--gold-500);
   background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.18);
 }
 
 .password-box {
   position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .password-box input {
   padding-right: 60px;
-  background: #f9f9f9;
-  color: #000000;
 }
 
 .password-box span {
   position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 14px;
   cursor: pointer;
-  font-size: 14px;
-  color: #0b2a6b;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.password-box span:hover {
-  color: #ff8c32;
-}
-
-.auth-links {
-  margin-top: 10px;
-  text-align: center;
   font-size: 13px;
-  color: black;
-}
-
-.link {
-  color: #0b2a6b;
-  text-decoration: none;
+  color: var(--gold-600);
   font-weight: 600;
-  transition: 0.3s;
-}
-
-.link:hover {
-  color: #ff8c32;
-  text-decoration: underline;
+  user-select: none;
 }
 
 .register-btn {
   width: 100%;
   padding: 13px;
-  background: #ff8c32;
-  border: none;
-  color: white;
-  font-size: 15px;
+  background: var(--gradient-gold);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--navy-950);
+  font-size: 14.5px;
   font-weight: 700;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: 0.3s;
-  margin-top: 15px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+  margin-top: 10px;
+  box-shadow: var(--shadow-gold);
 }
 
 .register-btn:hover {
-  background: #0b2a6b;
-  transform: translateY(-2px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+  background: var(--gradient-gold-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(184, 134, 11, 0.38);
 }
 
 .message {
-  background: #ffe4d1;
-  color: black;
-  padding: 10px;
-  border-radius: 6px;
-  margin-bottom: 15px;
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 18px;
   font-size: 13px;
   text-align: center;
+  font-weight: 500;
 }
 
-@keyframes cardFade {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.auth-links {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-light);
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.link {
+  color: var(--navy-700);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--gold-500);
+  text-decoration: underline;
+}
+
+@keyframes cardSlideFade {
+  from { opacity: 0; transform: translateY(18px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @media (max-width: 480px) {
   .auth-card {
-    padding: 35px 22px;
-  }
-  .panel-title {
-    font-size: 16px;
+    padding: 32px 22px;
   }
 }
