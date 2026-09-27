@@ -1,79 +1,65 @@
-# ==============================================================================
-# MMUSDA Church - Render Blueprint Configuration
-# Deploys Backend API + Frontend Church Site + Admin Dashboard in 1 Click
-# ==============================================================================
-
+# Exported from Render on 2026-09-27T16:16:51Z
+version: "1"
 services:
-  # ----------------------------------------------------------------------------
-  # 1. Backend Web Service (Node.js + Express + Neon PostgreSQL)
-  # ----------------------------------------------------------------------------
-  - type: web
-    name: mmusda-backend
-    runtime: node
-    plan: free
-    region: ohio # AWS US East (close to Neon database for lowest latency)
-    rootDir: backend
-    buildCommand: corepack enable && pnpm install
-    startCommand: pnpm start
-    healthCheckPath: /sermons/initial
-    envVars:
-      - key: NODE_VERSION
-        value: 20.20.2
-      - key: Database_URL
-        sync: false # Set in Render Dashboard or prompted on Blueprint apply
-      - key: JWT_SECRET
-        generateValue: true # Render automatically generates a secure 32-character secret
-      - key: EMAIL_USER
-        value: emmanuelmose806@gmail.com
-      - key: EMAIL_PASS
-        sync: false
-      - key: YOUTUBE_API_KEY
-        sync: false
-      - key: YOUTUBE_CHANNEL_ID
-        value: UCoKY04v0ItEWrrF_NpPFSFQ
-      - key: CLOUD_NAME
-        value: dht9tl5sw
-      - key: CLOUD_API_KEY
-        value: "946933553789588"
-      - key: CLOUD_API_SECRET
-        sync: false
-
-  # ----------------------------------------------------------------------------
-  # 2. Main Public Church Website (React + Vite SPA)
-  # ----------------------------------------------------------------------------
-  - type: web
-    name: mmusda-web
-    runtime: static
-    rootDir: frontend
-    buildCommand: corepack enable && pnpm install && pnpm run build
-    staticPublishPath: ./dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-    envVars:
-      - key: VITE_API_URL
-        fromService:
-          type: web
-          name: mmusda-backend
-          envVarKey: RENDER_EXTERNAL_URL
-
-  # ----------------------------------------------------------------------------
-  # 3. Admin Management Dashboard (React + Vite SPA)
-  # ----------------------------------------------------------------------------
-  - type: web
-    name: mmusda-admin
-    runtime: static
-    rootDir: admin
-    buildCommand: corepack enable && pnpm install && pnpm run build
-    staticPublishPath: ./dist
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
-    envVars:
-      - key: VITE_API_URL
-        fromService:
-          type: web
-          name: mmusda-backend
-          envVarKey: RENDER_EXTERNAL_URL
+- type: web
+  name: mmusda-backend
+  runtime: node
+  repo: https://github.com/Joshua-A-tech/mmusdaweb
+  plan: free
+  envVars:
+  - key: CLOUD_API_SECRET
+    sync: false
+  - key: YOUTUBE_API_KEY
+    sync: false
+  - key: EMAIL_PASS
+    sync: false
+  - key: Database_URL
+    sync: false
+  - key: CLOUD_API_KEY
+    sync: false
+  - key: CLOUD_NAME
+    sync: false
+  - key: YOUTUBE_CHANNEL_ID
+    sync: false
+  - key: EMAIL_USER
+    sync: false
+  - key: JWT_SECRET
+    sync: false
+  - key: NODE_VERSION
+    sync: false
+  region: ohio
+  buildCommand: corepack enable && pnpm install
+  startCommand: pnpm start
+  healthCheckPath: /sermons/initial
+  autoDeployTrigger: commit
+  rootDir: backend
+- type: web
+  name: mmusda-admin
+  runtime: static
+  repo: https://github.com/Joshua-A-tech/mmusdaweb
+  envVars:
+  - key: VITE_API_URL
+    sync: false
+  buildCommand: corepack enable && pnpm install && pnpm run build
+  staticPublishPath: ./dist
+  routes:
+  - type: rewrite
+    source: /*
+    destination: /index.html
+  autoDeployTrigger: commit
+  rootDir: admin
+- type: web
+  name: mmusda-web
+  runtime: static
+  repo: https://github.com/Joshua-A-tech/mmusdaweb
+  envVars:
+  - key: VITE_API_URL
+    sync: false
+  buildCommand: corepack enable && pnpm install && pnpm run build
+  staticPublishPath: ./dist
+  routes:
+  - type: rewrite
+    source: /*
+    destination: /index.html
+  autoDeployTrigger: commit
+  rootDir: frontend
