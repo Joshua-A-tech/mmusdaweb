@@ -41,8 +41,9 @@ services:
   # ----------------------------------------------------------------------------
   # 2. Main Public Church Website (React + Vite SPA)
   # ----------------------------------------------------------------------------
-  - type: static
+  - type: web
     name: mmusda-web
+    runtime: static
     rootDir: frontend
     buildCommand: corepack enable && pnpm install && pnpm run build
     staticPublishPath: ./dist
@@ -60,8 +61,9 @@ services:
   # ----------------------------------------------------------------------------
   # 3. Admin Management Dashboard (React + Vite SPA)
   # ----------------------------------------------------------------------------
-  - type: static
+  - type: web
     name: mmusda-admin
+    runtime: static
     rootDir: admin
     buildCommand: corepack enable && pnpm install && pnpm run build
     staticPublishPath: ./dist
