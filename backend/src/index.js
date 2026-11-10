@@ -73,7 +73,7 @@ app.use("/api/offerings", offeringsRouter);
 app.use("/api/offeringsdetails", offeringDetailsRouter);
 app.use("/api/admins", AdminsRouter);
 
-app.get("/", (req, res) =>
+app.get(["/", "/api"], (req, res) =>
   res.send(
     "MKUU HAPA NI BACKEND, HUWEZI ONA KITU INAFANYIKA, MAYBE UTUHACK WHICH HUWEZI, SISI NDO SIFUNA!!!!!"
   )
