@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --node-args=\"--no-network-family-autoselection\" src/server.js",
+    "dev": "nodemon --exec \"node --no-network-family-autoselection\" src/server.js",
     "start": "node --no-network-family-autoselection src/server.js",
     "build": "echo 'No build needed for backend'",
     "test": "echo \"Error: no test specified\" && exit 1",
