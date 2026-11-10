@@ -1,9 +1,10 @@
 import express from "express";
-import { register, verify, login, requestReset, verifyReset, resetPassword } from "./auth.controller.js";
+import { register, resendCode, verify, login, requestReset, verifyReset, resetPassword } from "./auth.controller.js";
 
 export const authRouter = express.Router();
 
 authRouter.post("/register", register);
+authRouter.post("/resend-code", resendCode);
 authRouter.post("/verify", verify);
 authRouter.post("/login", login);
 authRouter.post("/forgot-password", requestReset);

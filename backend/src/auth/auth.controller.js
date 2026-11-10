@@ -2,8 +2,18 @@ import * as authService from "./auth.service.js";
 
 export const register = async (req, res) => {
   try {
-    const { email, password } = req.body;
-    const result = await authService.registerAdmin({ email, password });
+    const { fullName, email, password } = req.body;
+    const result = await authService.registerAdmin({ fullName, email, password });
+    res.status(200).json(result);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+};
+
+export const resendCode = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const result = await authService.resendVerificationCode({ email });
     res.status(200).json(result);
   } catch (err) {
     res.status(400).json({ error: err.message });

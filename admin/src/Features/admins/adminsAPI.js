@@ -19,6 +19,11 @@ export const AdminsAPI = {
     return res.data.admin;
   },
 
+  approveAdmin: async (id) => {
+    const res = await axios.patch(`${ADMINS_URL}/${id}/approve`);
+    return res.data;
+  },
+
   deleteAdmin: async (id) => {
     const res = await axios.delete(`${ADMINS_URL}/${id}`);
     return res.data;

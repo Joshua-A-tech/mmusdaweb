@@ -2,7 +2,8 @@ import {
   getAllAdminsService,
   createAdminService,
   updateAdminService,
-  deleteAdminService
+  deleteAdminService,
+  approveAdminService
 } from "./admins.service.js";
 
 export const getAdmins = async (req, res) => {
@@ -11,6 +12,15 @@ export const getAdmins = async (req, res) => {
     res.json({ admins: data });
   } catch (err) {
     res.status(500).json({ message: err.message });
+  }
+};
+
+export const approveAdmin = async (req, res) => {
+  try {
+    const result = await approveAdminService(req.params.id);
+    res.json(result);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
 };
 

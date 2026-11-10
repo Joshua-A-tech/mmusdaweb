@@ -14,6 +14,9 @@ export const registeredAdmins = pgTable("registered_admins", {
   password: varchar("password", { length: 255 }).notNull(), 
   isVerified: boolean("is_verified").default(false),
   verificationCode: varchar("verification_code", { length: 10 }),
+  codeExpiresAt: timestamp("code_expires_at"),
+  isApproved: boolean("is_approved").default(true),
+  role: varchar("role", { length: 50 }).default("admin"),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
